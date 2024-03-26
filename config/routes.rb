@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_ingredients
   resources :products
   resources :routine_products
   resources :routines
