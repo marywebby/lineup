@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "routines#index"
+  
   resources :product_ingredients
   resources :products
   resources :routine_products
@@ -7,6 +9,4 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
-  root to: "routines#index"
 end

@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 class TypeOfProduct < ApplicationRecord
-  has_many :product
+  has_many :products
 end
