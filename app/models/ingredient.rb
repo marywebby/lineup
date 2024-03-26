@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Ingredient < ApplicationRecord
+  has_many :product_ingredient
 end
