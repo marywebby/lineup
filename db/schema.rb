@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_170534) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_174928) do
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "type_of_product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_of_product_id"], name: "index_products_on_type_of_product_id"
+  end
+
   create_table "routine_products", force: :cascade do |t|
     t.integer "routine_id", null: false
     t.integer "product_id", null: false
@@ -28,6 +36,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_170534) do
     t.index ["user_id"], name: "index_routines_on_user_id"
   end
 
+  create_table "type_of_products", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_170534) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "products", "type_of_products"
   add_foreign_key "routine_products", "products"
   add_foreign_key "routine_products", "routines"
   add_foreign_key "routines", "users"

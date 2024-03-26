@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   resources :routine_products
   resources :routines
   devise_for :users
@@ -6,5 +7,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: "home#index"
+  root to: "routines#index"
 end
