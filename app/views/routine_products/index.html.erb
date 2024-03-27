@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Routine products</h1>
+
+<div id="routine_products">
+  <% @routine_products.each do |routine_product| %>
+    <%= render routine_product %>
+    <p>
+      <%= link_to "Show this routine product", routine_product %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New routine product", new_routine_product_path %>
