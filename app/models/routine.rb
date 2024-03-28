@@ -19,4 +19,18 @@
 class Routine < ApplicationRecord
   belongs_to :user
   has_many :routine_products
+
+  validate :no_duplicate_products
+
+  private
+
+  def no_duplicate_products
+    product_ids = routine_products.pluck(:product_id)
+    
+    duplicates = product_ids.select { |product_id| product_ids.count(product_id) > 1 }
+    
+    if duplicates.any?
+      errors.add(:base, "Routine cannot contain duplicate products")
+    end
+  end
 end

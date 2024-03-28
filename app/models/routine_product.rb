@@ -19,7 +19,7 @@
 #  routine_id  (routine_id => routines.id)
 #
 class RoutineProduct < ApplicationRecord
-  validates :user_id, uniqueness: { scope: :product_id, message: "have already added this product" }
+  # validates :user_id, uniqueness: { scope: :product_id, message: "have already added this product" }
   belongs_to :routine
   belongs_to :product
 end
