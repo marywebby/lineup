@@ -108,3 +108,5 @@ group :test do
   gem "rspec-html-matchers"
   gem "webmock"
 end
+
+gem "ruby-openai", "~> 6.5"
