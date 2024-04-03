@@ -20,6 +20,8 @@ class Product < ApplicationRecord
   belongs_to :type_of_product
   has_many :routine_products
   has_many :product_ingredients
+  has_many :routines, through: :routine_products
+  has_many :ingredients, through: :product_ingredients
+
+  
 end
-
-
