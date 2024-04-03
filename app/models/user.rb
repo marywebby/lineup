@@ -26,4 +26,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :routines
+  has_many :products, through: :routines
+
 end
