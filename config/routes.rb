@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "routines#index"
+  root to: "home#index"
   
   resources :product_ingredients
   resources :products
