@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">LineUp</a>
+    <%= link_to 'LineUp', root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,13 +14,23 @@
             <li><a class="dropdown-item" href="#">Contact</a></li>
           </ul>
         </li>
+
         <% if user_signed_in? %>
+          <% if current_user.routines.any? %>
+            <%= link_to 'View Your Routines', current_user.routines.first, class: "nav-link" %>
+          <% else %>
+            <p>No routines to show.</p>
+            <%= link_to 'Generate a Routine', current_user_generate_routine_path, class: "btn btn-primary" %>
+          <% end %>
+
           <li class="nav-item">
-            <li><a class="nav-item" href="#">My Routines</a></li>
+            <%= link_to 'Browse Products', browse_products_path, class: "nav-link" %>
+          </li>
         <% end %>
       </ul>
 
-      <ul class="navbar-nav">
+      <!-- Right-aligned links -->
+      <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Edit #{current_user.username}", edit_user_registration_path, class: "nav-link" %>
@@ -28,7 +38,6 @@
           <li class="nav-item">
             <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
           </li>
-
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
@@ -38,7 +47,6 @@
           </li>
         <% end %>
       </ul>
-
     </div>
   </div>
 </nav>

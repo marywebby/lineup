@@ -1,5 +1,4 @@
 class RoutinesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_routine, only: %i[ show edit update destroy ]
 
   # GET /routines or /routines.json
