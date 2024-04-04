@@ -85,4 +85,7 @@ test:
 #
 production:
   <<: *default
+  database: lineup_db
+  username: lineup 
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
