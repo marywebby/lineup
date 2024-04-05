@@ -8,3 +8,7 @@ bundle install
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
 bundle exec rake db:migrate
+bundle exec rake slurp:type_of_products
+bundle exec rake slurp:products
+bundle exec rake slurp:ingredients
+bundle exec rake slurp:sample_data
