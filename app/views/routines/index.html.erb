@@ -3,7 +3,7 @@
 <h1>Routines</h1>
 
 <div id="routines">
-  <% @routines.each do |routine| %>
+  <% current_user.routines.each do |routine| %>
     <%= render routine %>
     <p>
       <%= link_to "Show this routine", routine %>
