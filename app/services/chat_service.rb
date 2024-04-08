@@ -8,7 +8,7 @@ class ChatService
 
   def call
     messages = [
-      { role: "system", content: routine.prompt },
+      { role: "system", content: routine },
       { role: "user", content: message }
     ]
 

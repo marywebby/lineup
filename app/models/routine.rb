@@ -22,15 +22,13 @@ class Routine < ApplicationRecord
   has_many :products, through: :routine_products
 
   validate :no_duplicate_products
+  validates :name, presence: true, inclusion: { in: ["Morning Routine", "Evening Routine", "Weekend Routine"] }
 
   # syntax for getting the products in a specific routine, first one, 
-    # User.first.routines[0].products.map(&:name).join(", ")
-    # Routine.first.products.map(&:name).join(", ")
+    # routine = User.first.routines[0]
 
-  # calling the chat servise in the ruby console 
-    # ChatService.new(message: "test message", prompt: User.first.prompt).call
-
-
+  # calling the chat servise in the ruby console
+    # ChatService.new(message: "test message", routine: routine).call
 
     def prompt
       <<-TEXT
