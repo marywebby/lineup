@@ -18,11 +18,11 @@
 #
 class Routine < ApplicationRecord
   belongs_to :user
-  has_many :routine_products
+  has_many :routine_products, dependent: :delete_all
   has_many :products, through: :routine_products
 
   validate :no_duplicate_products
-  validates :name, presence: true, inclusion: { in: ["Morning Routine", "Evening Routine", "Weekend Routine"] }
+  validates :name, presence: true
 
   # syntax for getting the products in a specific routine, first one, 
     # routine = User.first.routines[0]
