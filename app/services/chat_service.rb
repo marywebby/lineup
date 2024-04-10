@@ -7,8 +7,10 @@ class ChatService
   end
 
   def call
+    routine_prompt = routine.is_a?(Routine) ? routine.prompt : "Routine prompt not available."
+
     messages = [
-      { role: "system", content: routine },
+      { role: "system", content: routine_prompt },
       { role: "user", content: message }
     ]
 
