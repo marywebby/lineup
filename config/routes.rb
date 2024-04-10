@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post("/generate_routine", { :controller => "messages", :action => "create" })
 
-  post "/generate_routine" => "messages#create", as: :current_user_generate_routine
+  get "/generate_routine" => "routines#new", as: :current_user_generate_routine
 
   get "/products" => "products#index", as: :browse_products
 end

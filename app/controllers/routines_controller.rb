@@ -9,6 +9,8 @@ class RoutinesController < ApplicationController
 
   # GET /routines/1 or /routines/1.json
   def show
+    @routine = Routine.find(params[:id])
+    @messages = @routine.messages.order(created_at: :asc)
   end
 
   # GET /routines/new
