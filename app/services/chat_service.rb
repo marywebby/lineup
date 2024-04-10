@@ -10,8 +10,8 @@ class ChatService
     routine_prompt = routine.is_a?(Routine) ? routine.prompt : "Routine prompt not available."
 
     messages = [
-      { role: "system", content: routine_prompt },
-      { role: "user", content: message }
+      { role: "system", content: routine }, # Use routine's prompt method to get a string
+      { role: "user", content: message } # 'message' should also be a string
     ]
 
     response = client.chat(
