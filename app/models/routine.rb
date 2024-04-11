@@ -18,19 +18,18 @@
 #
 class Routine < ApplicationRecord
   belongs_to :user
-  has_many :routine_products
+  has_many :routine_products, dependent: :delete_all
   has_many :products, through: :routine_products
+  has_many :messages
 
   validate :no_duplicate_products
+  validates :name, presence: true
 
   # syntax for getting the products in a specific routine, first one, 
-    # User.first.routines[0].products.map(&:name).join(", ")
-    # Routine.first.products.map(&:name).join(", ")
+    # routine = User.first.routines[0]
 
-  # calling the chat servise in the ruby console 
-    # ChatService.new(message: "test message", prompt: User.first.prompt).call
-
-
+  # calling the chat servise in the ruby console
+    # ChatService.new(message: "test message", routine: routine).call
 
     def prompt
       <<-TEXT

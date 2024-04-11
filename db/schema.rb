@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_03_163058) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_10_185848) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -22,6 +22,33 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_163058) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "routine_id"
+  end
+
+  create_table "product_ingredients", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_product_ingredients_on_ingredient_id"
+    t.index ["product_id"], name: "index_product_ingredients_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "type_of_product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_of_product_id"], name: "index_products_on_type_of_product_id"
+  end
+
+  create_table "routine_products", force: :cascade do |t|
+    t.integer "routine_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_routine_products_on_product_id"
+    t.index ["routine_id"], name: "index_routine_products_on_routine_id"
   end
 
   create_table "routines", force: :cascade do |t|
@@ -53,5 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_163058) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "product_ingredients", "ingredients"
+  add_foreign_key "product_ingredients", "products"
+  add_foreign_key "products", "type_of_products"
+  add_foreign_key "routine_products", "products"
+  add_foreign_key "routine_products", "routines"
   add_foreign_key "routines", "users"
 end

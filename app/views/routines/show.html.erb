@@ -2,9 +2,37 @@
 
 <%= render @routine %>
 
+
+
 <div>
   <%= link_to "Edit this routine", edit_routine_path(@routine) %> |
   <%= link_to "Back to routines", routines_path %>
 
   <%= button_to "Destroy this routine", @routine, method: :delete %>
 </div>
+
+<h2>Routine: <%= @routine.name %></h2>
+
+<% if @messages.empty? %>
+  <p>No generated lineups for this routine yet.</p>
+<% else %>
+  <% @messages.each do |message| %>
+    <div class="message">
+    <p><strong>Role:</strong> <%= message.role %></p>
+    <p><strong>Content:</strong> <%= message.content %></p>
+  </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_routine_path(@routine) %> |
+<%= link_to 'Back', routines_path %>
+
+<dd>
+  <form action="/generate_routine" method="post">
+    <input type="hidden" name="routine_id" value="<%= @routine.id %>">
+    <input type="hidden" id="role_box" name="query_role" value="user">
+    <button>
+      generate a lineup
+    </button>
+  </form>
+</dd>

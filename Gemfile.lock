@@ -440,6 +440,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-erd
   rails_db
+  rake (= 13.1.0)
   redis (~> 4.0)
   rspec-html-matchers
   rspec-rails (~> 6.0.0)
