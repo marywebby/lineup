@@ -1,15 +1,53 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.hero-text h1 {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap; /* Prevents the line from wrapping */
+  overflow: hidden; /* Hides anything that overflows the width of the element */
+  font-size: 5em; /* Customize the font size as needed */
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+#lineup {
+  color: #17617B; /* Change color as needed */
+  display: inline; /* Ensures it stays in line with other text */
+  border-right: 3px solid #0f067b; /* Cursor-like border */
+  padding-right: 5px; /* Adds some spacing to simulate the space after typing finishes */
+  animation: blink .5s step-end infinite alternate;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.hero-image {
+  position: relative; /* This must be set for absolute positioning within it */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* This will clip any overflowing content */
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff; /* Or any other color that contrasts well with your background */
+  text-align: center;
+  width: 100%; /* Optional: it ensures the text block spans the entire width */
+}
+
+.hero-text p {
+  font-size: 2em; /* Customize the font size as needed */
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap; /* Prevents the line from wrapping */
+  overflow: hidden; /* Hides anything that overflows the width of the element */
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}

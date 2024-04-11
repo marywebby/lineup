@@ -1,38 +1,48 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+<div class="card">
+  <div class="card-header" style="color: green">
+    <%= notice %>
+  </div>
 
-<%= render @routine %>
+  <div class="card-body">
+    <h2 class="card-title">Routine: <%= @routine.name %></h2>
+    <ul>
+      <% @routine.products.each do |product| %>
+      <li>
+        <%= product.name %> |
+        <%= product.type_of_product.name %>
+      </li>
+       <% end %>
+    </ul>
+    
+    <% if @messages.empty? %>
+      <p class="card-text">No generated lineups for this routine yet.</p>
+    <% else %>
+      <% @messages.each do |message| %>
+        <div class="mb-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Use 'raw' or 'html_safe' to render HTML content -->
+              <p class="card-text"><strong>Generated Routine:</strong> <%= raw message.content %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
-
-
-<div>
-  <%= link_to "Edit this routine", edit_routine_path(@routine) %> |
-  <%= link_to "Back to routines", routines_path %>
-
-  <%= button_to "Destroy this routine", @routine, method: :delete %>
+    <div class="mt-3">
+      <%= link_to "Edit this routine", edit_routine_path(@routine), class: "btn btn-outline-primary" %>
+      <%= link_to "Back to routines", routines_path, class: "btn btn-outline-secondary" %>
+      <%= button_to "Destroy this routine", @routine, method: :delete, form: {class: "d-inline"}, class: "btn btn-outline-danger" %>
+    </div>
+  </div>
 </div>
 
-<h2>Routine: <%= @routine.name %></h2>
-
-<% if @messages.empty? %>
-  <p>No generated lineups for this routine yet.</p>
-<% else %>
-  <% @messages.each do |message| %>
-    <div class="message">
-    <p><strong>Role:</strong> <%= message.role %></p>
-    <p><strong>Content:</strong> <%= message.content %></p>
-  </div>
-  <% end %>
-<% end %>
-
-<%= link_to 'Edit', edit_routine_path(@routine) %> |
-<%= link_to 'Back', routines_path %>
-
-<dd>
+<div class="card-footer">
   <form action="/generate_routine" method="post">
     <input type="hidden" name="routine_id" value="<%= @routine.id %>">
     <input type="hidden" id="role_box" name="query_role" value="user">
-    <button>
-      generate a lineup
-    </button>
+    <button type="submit" class="btn btn-outline-primary">Generate a lineup</button>
   </form>
-</dd>
+</div>
+</div>

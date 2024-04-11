@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Routines</h1>
+<div class="container">
+  <h1>Routines</h1>
 
-<div id="routines">
-  <% current_user.routines.each do |routine| %>
-    <%= render routine %>
-    <p>
-      <%= link_to "Show this routine", routine %>
-    </p>
-  <% end %>
+  <div id="routines" class="row">
+    <% current_user.routines.each do |routine| %>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3>
+              <%= routine.name %>
+            </h3>
+            <%= link_to "Show this routine", routine, class: "card-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New routine", new_routine_path, class: "btn btn-primary" %>
 </div>
-
-<%= link_to "New routine", new_routine_path %>

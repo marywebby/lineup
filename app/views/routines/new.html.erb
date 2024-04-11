@@ -1,18 +1,20 @@
-<%= form_with(model: @routine, url: routines_path, method: :post, data: { turbo: false }) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+<div class="container">
+  <%= form_with(model: @routine, url: routines_path, method: :post, data: { turbo: false }) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <h3>Select Products:</h3>
-  <% @products.each do |product| %>
     <div class="field">
-      <%= check_box_tag "product_ids[]", product.id %>
-      <%= label_tag "product_#{product.id}", product.name %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
 
-  <%= f.submit "Create Routine" %>
-<% end %>
+    <h3>Select Products:</h3>
+    <% @products.each do |product| %>
+      <div class="field">
+        <%= check_box_tag "product_ids[]", product.id %>
+        <%= label_tag "product_#{product.id}", product.name %>
+      </div>
+    <% end %>
+
+    <%= f.submit "Create Routine" %>
+  <% end %>
+</div>

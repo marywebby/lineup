@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
+<div class="container">
+  <h1>Products</h1>
 
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+  <div id="products" class="row">
+    <% @products.each do |product| %>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= product.type_of_product.name %></h6>
+            <%= link_to "Show this product", product, class: "card-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+  <h3>Dont see a product you love? Let us know! </h3>
+  <%= link_to "New product", new_product_path, class: "btn btn-primary" %>
 </div>
-
-<%= link_to "New product", new_product_path %>

@@ -1,1 +1,28 @@
-<h1>hi again</h1>
+<div class="hero-image">
+  <%= image_tag('pastel-bathroom-tiles.jpg', alt: 'Pastel Bathroom Tiles') %>
+  <div class="hero-text">
+    <h1>Welcome to <span id="lineup">LineUp</span></h1>
+    <p class=>Find your perfect product lineup here.</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+     const lineupText = 'LineUp';
+     const lineupElement = document.getElementById('lineup');
+     let i = 0;
+     lineupElement.textContent = ''; // Clear initial text
+
+     function typeLetter() {
+         if (i < lineupText.length) {
+             lineupElement.textContent += lineupText.charA t(i);
+             i++;
+             setTimeout(typeLetter, 150); // Calls the next letter after a delay
+         } else {
+             lineupElement.style.borderRight = '3px solid orange'; // Cursor-like border appears after typing ends
+         }
+     }
+
+     setTimeout(typeLetter, 1000); // Delay before typing starts
+    });
+  </script>
+</div>
