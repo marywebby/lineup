@@ -114,3 +114,5 @@ group :test do
 end
 
 gem "ruby-openai", "~> 6.5"
+
+gem "tailwindcss-rails", "~> 2.4"
