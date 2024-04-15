@@ -100,6 +100,7 @@ group :development do
   gem "rufo"
   gem "specs_to_readme"
   gem "web_git"
+  gem 'foreman'
 end
 
 group :development, :test do

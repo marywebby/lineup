@@ -1,29 +1,31 @@
 .hero-text h1 {
   font-family: 'Courier New', Courier, monospace;
-  white-space: nowrap; /* Prevents the line from wrapping */
-  overflow: hidden; /* Hides anything that overflows the width of the element */
-  font-size: 5em; /* Customize the font size as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 2em; 
   margin-bottom: 0.5em;
   font-weight: 600;
+  text-align: center; 
 }
 
 #lineup {
-  color: #17617B; /* Change color as needed */
-  display: inline; /* Ensures it stays in line with other text */
-  border-right: 3px solid #0f067b; /* Cursor-like border */
-  padding-right: 5px; /* Adds some spacing to simulate the space after typing finishes */
+  color: #17617B;
+  display: inline;
+  border-right: 3px solid #0f067b;
+  padding-right: 5px;
   animation: blink .5s step-end infinite alternate;
 }
 
 @keyframes blink {
   50% { border-color: transparent; }
 }
+
 .hero-image {
-  position: relative; /* This must be set for absolute positioning within it */
+  position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0;
-  overflow: hidden; /* This will clip any overflowing content */
+  overflow: hidden;
 }
 
 .hero-image img {
@@ -38,16 +40,34 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #ffffff; /* Or any other color that contrasts well with your background */
+  color: white;
   text-align: center;
-  width: 100%; /* Optional: it ensures the text block spans the entire width */
+  width: 100%;
 }
 
 .hero-text p {
-  font-size: 2em; /* Customize the font size as needed */
+  font-size: 1em; 
   font-family: 'Courier New', Courier, monospace;
-  white-space: nowrap; /* Prevents the line from wrapping */
-  overflow: hidden; /* Hides anything that overflows the width of the element */
+  white-space: nowrap;
+  overflow: hidden;
   margin-bottom: 0.5em;
   font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 4em;
+  }
+  .hero-text p {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text h1 {
+    font-size: 5em;
+  }
+  .hero-text p {
+    font-size: 2em;
+  }
 }

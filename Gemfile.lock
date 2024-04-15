@@ -147,6 +147,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    foreman (0.87.2)
     git (1.18.0)
       addressable (~> 2.8)
       rchardet (~> 1.8)
@@ -433,6 +434,7 @@ DEPENDENCIES
   draft_generators
   draft_matchers
   faker
+  foreman
   grade_runner
   htmlbeautifier
   http
