@@ -1,15 +1,73 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.hero-text h1 {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 2em; 
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  text-align: center; 
+}
+
+#lineup {
+  color: #17617B;
+  display: inline;
+  border-right: 3px solid #0f067b;
+  padding-right: 5px;
+  animation: blink .5s step-end infinite alternate;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.hero-image {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-text p {
+  font-size: 1em; 
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 4em;
+  }
+  .hero-text p {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text h1 {
+    font-size: 5em;
+  }
+  .hero-text p {
+    font-size: 2em;
+  }
+}

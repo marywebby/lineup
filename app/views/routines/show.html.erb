@@ -1,38 +1,43 @@
-<p style="color: green"><%= notice %></p>
+<%# app/views/routines/show.html.erb %>
+<div class="min-h-screen bg-fixed bg-no-repeat bg-cover flex items-center justify-center" style="background-image: url(<%= asset_path('pastel-bathroom-tiles.jpg') %>);">
+  <div class="container mx-auto px-4">
+    <div class="card bg-base-100 shadow-xl mx-auto" style="max-width: 36rem;">
+      <div class="card-body">
+        <h2 class="card-title text-center text-white">Routine: <%= @routine.name %></h2>
+        <ul>
+          <% @routine.products.each do |product| %>
+            <li class="text-white">
+              <%= product.name %> | <%= product.type_of_product.name %>
+            </li>
+          <% end %>
+        </ul>
 
-<%= render @routine %>
+        <% if @messages.empty? %>
+          <p>No generated lineups for this routine yet.</p>
+        <% else %>
+          <% @messages.each do |message| %>
+            <% if message.content.present? %>
+              <div class="card-body bg-white text-black p-4 my-4">
+                <%= message.content.html_safe %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
 
+        <div class="card-footer">
+          <form action="/generate_routine" method="post">
+            <input type="hidden" name="routine_id" value="<%= @routine.id %>">
+            <input type="hidden" id="role_box" name="query_role" value="user">
+            <button type="submit" class="btn btn-outline-primary">Generate a lineup</button>
+          </form>
+        </div>
 
-
-<div>
-  <%= link_to "Edit this routine", edit_routine_path(@routine) %> |
-  <%= link_to "Back to routines", routines_path %>
-
-  <%= button_to "Destroy this routine", @routine, method: :delete %>
-</div>
-
-<h2>Routine: <%= @routine.name %></h2>
-
-<% if @messages.empty? %>
-  <p>No generated lineups for this routine yet.</p>
-<% else %>
-  <% @messages.each do |message| %>
-    <div class="message">
-    <p><strong>Role:</strong> <%= message.role %></p>
-    <p><strong>Content:</strong> <%= message.content %></p>
+        <div class="card-actions justify-center mt-4">
+          <%= link_to "Edit this routine", edit_routine_path(@routine), class: "btn btn-secondary" %>
+          <%= link_to "Back to routines", routines_path, class: "btn btn-secondary" %>
+          <%= button_to "Destroy this routine", @routine, method: :delete, form: {class: "inline"}, class: "btn btn-error" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <% end %>
-<% end %>
-
-<%= link_to 'Edit', edit_routine_path(@routine) %> |
-<%= link_to 'Back', routines_path %>
-
-<dd>
-  <form action="/generate_routine" method="post">
-    <input type="hidden" name="routine_id" value="<%= @routine.id %>">
-    <input type="hidden" id="role_box" name="query_role" value="user">
-    <button>
-      generate a lineup
-    </button>
-  </form>
-</dd>
+</div>

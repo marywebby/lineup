@@ -100,6 +100,7 @@ group :development do
   gem "rufo"
   gem "specs_to_readme"
   gem "web_git"
+  gem 'foreman'
 end
 
 group :development, :test do
@@ -114,3 +115,5 @@ group :test do
 end
 
 gem "ruby-openai", "~> 6.5"
+
+gem "tailwindcss-rails", "~> 2.4"
