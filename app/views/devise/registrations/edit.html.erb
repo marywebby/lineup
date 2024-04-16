@@ -1,49 +1,53 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h2 class="mb-4">Edit <%= resource_name.to_s.humanize %></h2>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-lg mx-auto p-12 bg-white shadow-xl rounded-lg"> 
+    <div class="w-full">
+      <h2 class="mb-8 text-3xl font-bold text-center">Edit User</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-group mb-3">
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { class: "form-control", autocomplete: "email" } %>
+        <div class="form-control w-full mb-4">
+          <%= f.label :email, class: "label" %>
+          <label class="label">
+            <span class="label-text text-red-500 text-white"></span>
+            <%= f.email_field :email, required: true, autofocus: true, class: "input input-bordered w-full text-white", autocomplete: "email" %>
+          </label>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div class="mb-3">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div class="alert alert-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="form-group mb-3">
-          <%= f.input :password,
-                      required: false,
-                      input_html: { class: "form-control", autocomplete: "new-password" } %>
-          <small class="form-text text-muted">Leave it blank if you don't want to change it</small>
+        <div class="form-control w-full mb-4">
+          <%= f.label :password, class: "label" %>
+          <label class="label">
+            <%= f.password_field :password, required: false, class: "input input-bordered w-full text-white", autocomplete: "new-password" %>
+            <!--<span class="label-text-alt text-xs text-gray-500">Leave it blank if you don't want to change it</span>-->
+          </label>
         </div>
 
-        <div class="form-group mb-3">
-          <%= f.input :password_confirmation,
-                      required: false,
-                      input_html: { class: "form-control", autocomplete: "new-password" } %>
+        <div class="form-control w-full mb-4">
+          <%= f.label :password_confirmation, class: "label" %>
+          <%= f.password_field :password_confirmation, required: false, class: "input input-bordered w-full text-white", autocomplete: "new-password" %>
         </div>
 
-        <div class="form-group mb-3">
-          <%= f.input :current_password,
-                      required: true,
-                      input_html: { class: "form-control", autocomplete: "current-password" } %>
-          <small class="form-text text-muted">We need your current password to confirm your changes</small>
+        <div class="form-control w-full mb-4">
+          <%= f.label :current_password, class: "label" %>
+          <label class="label">
+            <span class="label-text text-red-500"></span>
+            <%= f.password_field :current_password, required: true, class: "input input-bordered w-full text-white", autocomplete: "current-password" %>
+          </label>
+          <div>
+              <span class="label-text-alt text-xs text-gray-500">We need your current password to confirm your changes</span>
+            </div>
         </div>
 
-        <div class="form-actions mt-4">
-          <%= f.button :submit, "Update", class: "btn btn-primary" %>
+        <div class="form-control mt-4">
+          <%= f.submit "Update", class: "btn btn-primary" %>
         </div>
       <% end %>
 
       <div class="mt-4">
-        <h3>Cancel my account</h3>
-        <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mt-3" %></div>
+        <div><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-error mt-3" %></div>
       </div>
 
       <%= link_to "Back", :back, class: "btn btn-secondary mt-3" %>

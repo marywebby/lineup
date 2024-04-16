@@ -1,22 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<%# app/views/routines/index.html.erb %>
+<div class="min-h-screen bg-blue-100">
+  <div class="container mx-auto px-4 py-6">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">Routines</h1>
 
-<div class="container">
-  <h1>Routines</h1>
-
-  <div id="routines" class="row">
-    <% current_user.routines.each do |routine| %>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h3>
-              <%= routine.name %>
-            </h3>
-            <%= link_to "Show this routine", routine, class: "card-link" %>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <% current_user.routines.each do |routine| %>
+        <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+          <div class="card-body p-5">
+            <h2 class="card-title text-xl font-semibold mb-3"><%= routine.name %></h2>
+            <div class="card-actions justify-center">
+              <%= link_to "Show this routine", routine, class: "btn btn-primary" %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <%= link_to "New routine", new_routine_path, class: "btn btn-primary" %>
+    <div class="text-center mt-8">
+      <%= link_to "New routine", new_routine_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
