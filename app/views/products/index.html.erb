@@ -23,10 +23,12 @@
 
             <!-- Details to show on hover -->
             <div class="absolute p-4 custom-opacity transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8">
-              
-              <h3 class="mt-4 text-xl font-medium sm:text-2xl"><%= product.name %></h3>
               <p class="mt-4 text-sm sm:text-base text-black">
-                <%#= product.description %>
+                <% if product.photo_url.present? %>
+                  <%= image_tag(product.photo_url, alt: product.name, class: "object-cover w-full h-full") %>
+                <% else %>
+                  <p>Image not available</p>
+                <% end %>
               </p>
               <p class="mt-8 font-bold text-black">Read more</p>
             </div>
@@ -35,9 +37,6 @@
       </div>
     <% end %>
   </div>
-  
-
-
 
   <h3 class="text-lg mt-6">Don't see a product you love? Let us know!</h3>
   <%= link_to "New product", new_product_path, class: "btn btn-primary" %>

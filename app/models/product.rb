@@ -4,6 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  name               :string
+#  photo_url          :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  type_of_product_id :integer          not null
