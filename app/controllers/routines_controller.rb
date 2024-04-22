@@ -1,22 +1,24 @@
 class RoutinesController < ApplicationController
   before_action :set_routine, only: %i[ show edit update destroy ]
   before_action :set_products, only: [:new]
+  before_action { authorize (@routine || Routine)}
+
 
   # GET /routines or /routines.json
   def index
-    @routines = Routine.all
+    authorize @routines = Routine.all
   end
 
   # GET /routines/1 or /routines/1.json
   def show
-    @routine = Routine.find(params[:id])
+    authorize @routine = Routine.find(params[:id])
     @messages = @routine.messages.order(created_at: :asc)
   end
 
   # GET /routines/new
   def new
-    @routine = Routine.new
-    @products = Product.all
+    authorize @routine = Routine.new
+   @products = Product.all
   end
 
   # GET /routines/1/edit
