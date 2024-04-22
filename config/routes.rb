@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "/products" => "products#index", as: :browse_products
 
   get "/about" => "home#about", as: :about_lineup
+  get "/contact" => "home#contact", as: :contact_form
 end
