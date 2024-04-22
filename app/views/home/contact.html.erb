@@ -1,18 +1,31 @@
-<form action="https://api.web3forms.com/submit" method="POST">
+<div class="flex min-h-screen items-center bg-blue-200">
+  <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto p-6 bg-white box-border shadow-md rounded-2xl">
 
     <!-- Replace with your Access Key -->
     <input type="hidden" name="access_key" value="<%= Rails.application.credentials.email_form_key %>">
 
     <!-- Form Inputs. Each input must have a name="" attribute -->
-    <input type="text" name="name" required>
-    <input type="email" name="email" required>
-    <textarea name="message" required></textarea>
+    <div class="mb-4">
+      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+      <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+      <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+    </div>
+
+    <div class="mb-6">
+      <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+      <textarea name="message" id="message" required rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+    </div>
 
     <!-- hCaptcha Spam Protection -->
     <div class="h-captcha" data-captcha="true"></div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-md">Submit</button>
 
-</form>
-<!-- Required for hCaptcha -->
-<script src="https://web3forms.com/client/script.js" async defer></script>
+  </form>
+  <!-- Required for hCaptcha -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+</div>
