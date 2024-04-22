@@ -1,6 +1,10 @@
 <div class="navbar bg-base-100 text-white">
   <div class="navbar-start">
-    <%= link_to 'LineUp', root_path, class: "btn btn-ghost text-xl" %>
+    <%= link_to root_path, class: "logo-link" do %>
+      <svg width="300" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50">
+        <image href="<%= asset_path('logo.png') %>" width="200" height="50" />
+      </svg>
+    <% end %>
   </div>
 
   <div class="navbar-end">
