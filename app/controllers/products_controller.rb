@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action { authorize (@product || Product)}
 
   # GET /products or /products.json
   def index
@@ -67,4 +68,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :type_of_product_id)
     end
+
 end

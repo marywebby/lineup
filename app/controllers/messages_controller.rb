@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_routine
+  before_action { authorize (@message || Message)}
+
 
   def create
     the_message = @routine.messages.new(role: params[:query_role])
