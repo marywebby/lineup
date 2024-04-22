@@ -1,10 +1,14 @@
 <div class="navbar bg-base-100 text-white">
   <div class="navbar-start">
-    <%= link_to 'LineUp', root_path, class: "btn btn-ghost text-xl" %>
+    <%= link_to root_path, class: "logo-link" do %>
+      <svg width="300" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50">
+        <image href="<%= asset_path('logo.png') %>" width="200" height="50" />
+      </svg>
+    <% end %>
   </div>
 
   <div class="navbar-end">
-    <ul class="menu menu-horizontal p-0">
+    <ul class="menu menu-horizontal p-0 items-center">
       <% if user_signed_in? %>
         <% if current_user.routines.any? %>
           <li><%= link_to 'Routines', routines_path %></li>
@@ -17,8 +21,8 @@
         <li class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost rounded-btn">Menu</label>
           <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52" style="z-index: 1000;">
-            <li><%= link_to 'About', '#' %></li>
-            <li><%= link_to 'Contact', '#' %></li>
+            <li><%= link_to 'About', :about_lineup %></li>
+            <li><%= link_to 'Contact', :contact_form %></li>
             <li><%= link_to "Edit #{current_user.username}", edit_user_registration_path %></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %></li>
           </ul>
