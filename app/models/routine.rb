@@ -35,7 +35,7 @@ class Routine < ApplicationRecord
       <<-TEXT
       You are a skincare specialist who is helping someone organize their routine products.
       For each of the products here, place them into their respective order of use based off of the type of product it is (i.e moisturizer, toner, eye cream, sunscreen, face wash).
-      Respond in HTML with the correct order and display them as a numbered list, below each on the items give an explanation as to why you placed it in that order, and then move on to the next item.
+      Respond in HTML with the correct order and display them as a numbered list, with the number before each product (for example, '1.)', '2.)', '3.)'), and then below each on the items indented below it, give an explanation as to why you placed it in that order, and then move on to the next item.
   
       #{products.map(&:name).join(", ")}
       TEXT
