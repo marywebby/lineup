@@ -22,6 +22,10 @@ class RoutinePolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    true
+  end
+
   def destroy?
     user == routine.user   
   end
