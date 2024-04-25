@@ -16,7 +16,7 @@
 #lineup {
   color: #17617B;
   display: inline;
-  border-right: 3px solid #0f067b;
+  border-right: 3px solid #17617B;
   padding-right: 5px;
   animation: blink .5s step-end infinite alternate;
 }
@@ -40,12 +40,16 @@
   object-fit: cover;
 }
 
+.hero-quote {
+  color: #17617B
+}
+
 .hero-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #17617B;
   text-align: center;
   width: 100%;
 }
@@ -57,6 +61,7 @@
   overflow: hidden;
   margin-bottom: 0.5em;
   font-weight: 600;
+  color: #17617B;
 }
 
 @media (min-width: 768px) {

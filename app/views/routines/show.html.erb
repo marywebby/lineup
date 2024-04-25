@@ -1,6 +1,6 @@
 <%# app/views/routines/show.html.erb %>
 <div class="min-h-screen bg-fixed bg-no-repeat bg-cover flex items-center justify-center" style="background-image: url(<%= asset_path('pastel-bathroom-tiles.jpg') %>);">
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 mt-8 mb-8">
     <div class="card bg-base-100 shadow-xl mx-auto" style="max-width: 36rem;">
       <div class="card-body">
         <h2 class="card-title text-center text-white">Routine: <%= @routine.name %></h2>
@@ -24,18 +24,18 @@
           <% end %>
         <% end %>
 
-        <div class="card-footer">
+        <div class="card-footer flex place-content-center">
           <form action="/generate_routine" method="post">
             <input type="hidden" name="routine_id" value="<%= @routine.id %>">
             <input type="hidden" id="role_box" name="query_role" value="user">
-            <button type="submit" class="btn btn-outline-primary">Generate a lineup</button>
+            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">Generate a lineup</button>
           </form>
         </div>
 
         <div class="card-actions justify-center mt-4">
-          <%= link_to "Edit this routine", edit_routine_path(@routine), class: "btn btn-secondary" %>
-          <%= link_to "Back to routines", routines_path, class: "btn btn-secondary" %>
-          <%= button_to "Destroy this routine", @routine, method: :delete, form: {class: "inline"}, class: "btn btn-error" %>
+          <%= link_to "Edit this routine", edit_routine_path(@routine), class: "inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+          <%= link_to "Back to routines", routines_path, class: "inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+          <%= button_to "Destroy this routine", @routine, method: :delete, form: {class: "inline"}, class: "inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
         </div>
       </div>
     </div>
