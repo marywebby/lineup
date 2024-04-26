@@ -38,6 +38,7 @@ Users are able to easily click "generate routine" on the specific routine, and i
 - Ruby version: `3.2.1`
 - Rails version: `7.0.4.3`
 - Tailwind CSS Rails `2.4`
+- Bootstrap `5.3.3`
 
 ### Additonal gems added to applications 
 - [`appdev_support`](https://github.com/firstdraft/appdev_support)

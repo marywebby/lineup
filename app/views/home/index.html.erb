@@ -1,17 +1,93 @@
-<div class="flex-container" >
+<div class="flex-container" style="">
   <%= image_tag('bathroom-img.jpg', alt: 'Pastel Bathroom Tiles') %>
   <div class="hero-text" style="flex-direction: left;">
     <h1 style="color: #17617B;">Welcome to <span id="lineup" style="">LineUp</span></h1>
-    <p class="hero-quote" style="color: #000000;">Find your perfect product lineup here.</p>
+    <p class="hero-quote" style="color: #000000;">Curate your perfect skincare routine</p>
+    <p class="hero-tagline" style="color: #000000; font-size: 20px;">Discover products, create routines, and discover your step by step line up!</p>
+    <button type="button" class="btn btn-dark"><%= link_to 'get started now', new_user_registration_path %></button>
   </div>
 
 </div>
 
-<!--<div class="min-h-screen">
-  reviews
+
+<style>
+  .image-blur {
+    filter: blur(4px); /* Applies a blur effect to the image */
+  }
+
+  .text-blue {
+    color: #007bff; /* Sets the text color to a bright blue */
+  }
+
+  .bg-gradient-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)); /* Dark overlay to enhance text readability */
+  }
+
+  .grid-item {
+    width: 500px;
+    height: 300px;
+  }
+</style>
+
+<div class="" style="">
+  <div class="flex flex-col m-4 md:content-between">
+    <div>
+      <!-- First item with updated image and content -->
+      <article class="m-5 relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <%= image_tag('flowers.jpg', alt: 'Pastel Bathroom Tiles', class: 'absolute inset-0 h-full w-full object-cover') %>
+
+        <div class="relative bg-gradient-overlay pt-32 sm:pt-48 lg:pt-64">
+          <div class="p-4 sm:p-6">
+            <a href="#">
+              <h3 class="mt-0.5 text-lg text-white">Who's this for?</h3>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-white">
+              This is for the everyday person who is creating a skincare routine or someone who is trying to improve their already made regime.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div>
+      <!-- Second item remains unchanged -->
+      <article class="m-5 relative overflow-hidden rounded-lg shadow transition hover:shadow-md">
+        <div class="grid-item">
+           <%= image_tag('walkthrough.gif', alt: 'Example Alt Text', class: 'absolute inset-0 h-full w-full object-cover') %>
+        </div>
+
+        <div class="relative bg-gradient-overlay pt-32 sm:pt-48 lg:pt-64">
+          <div class="p-4 sm:p-6">
+            <time datetime="2022-10-10" class="block text-xs text-translucent"></time>
+
+            <a href="#">
+              <h3 class="mt-0.5 text-lg text-blue"></h3>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-blue">
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div>
+      <!-- Third item with updated image and content -->
+      <article class="m-5 relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <%= image_tag('sink.jpg', alt: 'Sink', class: 'absolute inset-0 h-full w-full object-cover') %>
+
+        <div class="relative bg-gradient-overlay pt-32 sm:pt-48 lg:pt-64">
+          <div class="p-4 sm:p-6">
+            <a href="#">
+              <h3 class="mt-0.5 text-lg text-white">Testimonials</h3>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-white">
+              <p class="text-white"> Martha - "This app has helped me so much with creating my routine! I finally have a place where I can update and learn more about what order I should be using my products in!"</p>
+              <p class="text-white">Jane - "I love using this app to help me curate a new routine with the products I have!"</p>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
 </div>
-
-
-<div class="min-h-screen">
-  
-</div>-->
