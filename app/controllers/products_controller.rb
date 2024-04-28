@@ -4,12 +4,19 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
+    @breadcrumbs = [
+      {content: "Products", href: products_path}
+    ]
     @q = Product.ransack(params[:q])
     @products = @q.result
   end
 
   # GET /products/1 or /products/1.json
   def show
+    @breadcrumbs = [
+      {content: "Products", href: products_path},
+      {content: @product.name, href: products_path(@product)},
+    ]
   end
 
   # GET /products/new
