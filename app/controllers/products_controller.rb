@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result
   end
 
   # GET /products/1 or /products/1.json
@@ -66,5 +67,4 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :type_of_product_id)
     end
-
 end
