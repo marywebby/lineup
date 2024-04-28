@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   before_action :set_routine
   before_action { authorize (@message || Message)}
 
-
   def create
     the_message = @routine.messages.new(role: params[:query_role])
     # api_messages_array = [{ role: "system", content: @routine.prompt }]

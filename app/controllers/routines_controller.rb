@@ -38,8 +38,6 @@ class RoutinesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
-  
 
   # PATCH/PUT /routines/1 or /routines/1.json
   def update
@@ -76,12 +74,10 @@ class RoutinesController < ApplicationController
       end
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_routine
       @routine = Routine.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def routine_params
       params.require(:routine).permit(:name, :user_id)
     end

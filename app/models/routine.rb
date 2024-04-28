@@ -25,12 +25,6 @@ class Routine < ApplicationRecord
   validate :no_duplicate_products
   validates :name, presence: true
 
-  # syntax for getting the products in a specific routine, first one, 
-    # routine = User.first.routines[0]
-
-  # calling the chat servise in the ruby console
-    # ChatService.new(message: "test message", routine: routine).call
-
     def prompt
       <<-TEXT
       You are a skincare specialist who is helping someone organize their routine products.
