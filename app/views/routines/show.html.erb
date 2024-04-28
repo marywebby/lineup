@@ -13,7 +13,7 @@
         </ul>
 
         <% if @messages.empty? %>
-          <p>No generated lineups for this routine yet.</p>
+          <p class="italic text-white m-4">No generated lineups for this routine yet.</p>
         <% else %>
           <% @messages.each do |message| %>
             <% if message.content.present? %>
