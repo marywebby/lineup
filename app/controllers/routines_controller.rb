@@ -30,6 +30,11 @@ class RoutinesController < ApplicationController
 
   # GET /routines/1/edit
   def edit
+    @breadcrumbs = [
+      {content: "Routines", href: routines_path},
+      {content: @routine.name, href: routine_path(@routine)},
+      {content: "Edit"}
+    ]
   end
 
   # POST /routines or /routines.json
