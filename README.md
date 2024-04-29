@@ -15,21 +15,15 @@ LineUp offers a streamlined and user-friendly solution to the common challenges 
 
 ### **Product Browsing**: 
 Users are able to search through existing products in the catalog to get further information about each one. Users are also able to submit and send in products that they love that they want to see in the database. 
-<div>
-  <img src="product-browsing.gif" alt="Alt text" width="500" height="300">
-</div>
+## [[Click to Watch Video Here]](https://youtu.be/JPlUI7_pLcI)
 
 ### **Routine Creation**: 
 Users are able to title their own routines and select specific products they want placed into it. 
-<div>
-  <img src="routine-creation.gif" alt="Alt text" width="500" height="300">
-</div>
+## [[Click to Watch Video Here]](https://youtu.be/rzkGJuNN0dE)
 
 ### **LineUp Generation**: 
 Users are able to easily click "generate routine" on the specific routine, and in return, OpenAI's API will generate the line up of what order they should use each of the products in. 
-<div>
-  <img src="generating-lineup.gif" alt="Alt text" width="500" height="300">
-</div>
+## [[Click to Watch Video Here]](https://youtu.be/AIVrUND7F7U)
 
 
 ## Technologies Used ⚙️
