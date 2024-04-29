@@ -6,23 +6,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render "shared/cdn_assets" %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
 
     <%= render partial: "shared/navbar" %>
-  
-      <% if alert.present? %>
-        <%= render partial: "shared/flash", locals: { message: alert, css_class: "danger" } %>
-      <% end %>
 
-      <%= yield %>
+    <% if alert.present? %>
+      <%= render partial: "shared/flash", locals: { message: alert, css_class: "danger" } %>
+    <% end %>
 
-    </body>
+    <%= render "shared/breadcrumbs" %>
+    <%= yield %>
 
-    <%= render partial: "shared/footer" %>
+  </body>
 
-  </html>
+  <%= render partial: "shared/footer" %>
+
+</html>

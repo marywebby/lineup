@@ -4,11 +4,19 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @breadcrumbs = [
+      {content: "Products", href: products_path}
+    ]
+    @q = Product.page(params[:page]).ransack(params[:q])
+    @products = @q.result
   end
 
   # GET /products/1 or /products/1.json
   def show
+    @breadcrumbs = [
+      {content: "Products", href: products_path},
+      {content: @product.name, href: products_path(@product)},
+    ]
   end
 
   # GET /products/new
@@ -59,14 +67,11 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:name, :type_of_product_id)
     end
-
 end

@@ -58,12 +58,10 @@ class RoutineProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_routine_product
       @routine_product = RoutineProduct.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def routine_product_params
       params.require(:routine_product).permit(:routine_id, :product_id)
     end

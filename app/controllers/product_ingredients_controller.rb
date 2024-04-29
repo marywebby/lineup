@@ -58,12 +58,10 @@ class ProductIngredientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_product_ingredient
       @product_ingredient = ProductIngredient.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def product_ingredient_params
       params.require(:product_ingredient).permit(:product_id, :ingredient_id)
     end

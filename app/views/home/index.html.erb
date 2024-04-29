@@ -1,17 +1,113 @@
-<div class="flex-container" >
-  <%= image_tag('bathroom-img.jpg', alt: 'Pastel Bathroom Tiles') %>
+<div class="flex-container" style="">
+  <%= image_tag('bathroom-img.jpg', alt: 'Bathroom Tiles with skincare products and a sink') %>
   <div class="hero-text" style="flex-direction: left;">
     <h1 style="color: #17617B;">Welcome to <span id="lineup" style="">LineUp</span></h1>
-    <p class="hero-quote" style="color: #000000;">Find your perfect product lineup here.</p>
+    <p class="hero-quote" style="color: #000000;">Curate your perfect skincare routine</p>
+    <button type="button" class="btn btn-dark"><%= link_to 'get started now', new_user_registration_path %></button>
   </div>
 
 </div>
 
-<!--<div class="min-h-screen">
-  reviews
+<style>
+  .image-blur {
+    filter: blur(4px); 
+  }
+
+  .text-blue {
+    color: #007bff; 
+  }
+
+  .bg-gradient-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)); /* Dark overlay to enhance text readability */
+  }
+
+  .grid-item {
+    width: 500px;
+    height: 300px;
+  }
+</style>
+
+<div class="min-h-1000" style="">
+  <div class="flex flex-col m-4 md:content-between">
+    <div>
+      <article class="m-5 relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <%= image_tag('flowers.jpg', alt: 'Image of flowers on a white background', class: 'absolute inset-0 h-full w-full object-cover') %>
+
+        <div class="relative bg-gradient-overlay pt-32 sm:pt-48 lg:pt-64">
+          <div class="p-4 sm:p-6">
+            <a href="#">
+              <h3 class="mt-0.5 text-lg text-white">Who's this for?</h3>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-white font-bold m-4">
+              This is for the everyday person who is creating a skincare routine or someone who is trying to improve their already made regime.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div>
+      <article class="m-5 relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <%= image_tag('sink.jpg', alt: 'Image of a sink with flowers on it', class: 'absolute inset-0 h-full w-full object-cover') %>
+
+        <div class="relative bg-gradient-overlay pt-32 sm:pt-48 lg:pt-64">
+          <div class="p-4 sm:p-6">
+            <a href="#">
+              <h3 class="mt-0.5 text-lg text-white">Testimonials</h3>
+            </a>
+
+            <p class="mt-2 line-clamp-3 text-sm/relaxed text-white">
+              <p class="text-white font-bold m-4"> Martha - "This app has helped me so much with creating my routine! I finally have a place where I can update and learn more about what order I should be using my products in!"</p>
+              <p class="text-white font-bold m-4">Jane - "I love using this app to help me curate a new routine with the products I have!"</p>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
 </div>
 
+<div class="flex min-h-screen justify-center">
+  <div>
+    <h3 class="mt-0.5 text-xl mb-4">Discover Products</h3>
+    <a href="#" class="flex justify-center">
+      <%= image_tag('lineup-browsing-products.gif', alt: 'Gif showing how to browse products within app', class: 'absolute h-800px w-500px') %>
 
-<div class="min-h-screen">
-  
-</div>-->
+      <div class="xs:flex xs:items-center xs:justify-center xs:gap-4">
+
+        <span class="hidden sm:block sm:h-px sm:w-8 sm:bg-yellow-500"></span>
+
+      </div>
+    </a>
+  </div>
+</div>
+<div class="flex min-h-screen justify-center">
+  <div>
+    <h3 class="mt-0.5 text-xl mb-4">Create Routines</h3>
+    <a href="#" class="flex justify-center">
+      <%= image_tag('lineup-generating-routine.gif', alt: 'Gif showing how to generate a routine', class: 'absolute h-800px w-500px') %>
+
+      <div class="xs:flex xs:items-center xs:justify-center xs:gap-4">
+
+        <span class="hidden sm:block sm:h-px sm:w-8 sm:bg-yellow-500"></span>
+
+      </div>
+    </a>
+  </div>
+</div>
+<div class="flex min-h-screen justify-center">
+  <div>
+    <h3 class="mt-0.5 text-xl mb-4">Generate Line Ups</h3>
+    <a href="#" class="flex justify-center">
+      <%= image_tag('generating-lineup.gif', alt: 'Gif showing a demonstration of how to generate a lineup', class: 'absolute h-800px w-500px') %>
+
+      <div class="xs:flex xs:items-center xs:justify-center xs:gap-4">
+
+        <span class="hidden sm:block sm:h-px sm:w-8 sm:bg-yellow-500"></span>
+
+      </div>
+    </a>
+  </div>
+</div>
+`

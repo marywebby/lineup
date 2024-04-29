@@ -44,6 +44,12 @@
   color: #17617B
 }
 
+.reviews {
+  width:300px;
+  margin:auto;
+
+}
+
 .hero-text {
   position: absolute;
   top: 50%;

@@ -6,6 +6,9 @@ class RoutinesController < ApplicationController
 
   # GET /routines or /routines.json
   def index
+    @breadcrumbs = [
+      {content: "Routines", href: routines_path}
+    ]
     authorize @routines = Routine.all
   end
 
@@ -13,6 +16,10 @@ class RoutinesController < ApplicationController
   def show
     authorize @routine = Routine.find(params[:id])
     @messages = @routine.messages.order(created_at: :asc)
+    @breadcrumbs = [
+      {content: "Routines", href: routines_path},
+      {content: @routine.name, href: routines_path(@routine)},
+    ]
   end
 
   # GET /routines/new
@@ -23,6 +30,11 @@ class RoutinesController < ApplicationController
 
   # GET /routines/1/edit
   def edit
+    @breadcrumbs = [
+      {content: "Routines", href: routines_path},
+      {content: @routine.name, href: routine_path(@routine)},
+      {content: "Edit"}
+    ]
   end
 
   # POST /routines or /routines.json
@@ -38,8 +50,6 @@ class RoutinesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
-  
 
   # PATCH/PUT /routines/1 or /routines/1.json
   def update
@@ -76,12 +86,10 @@ class RoutinesController < ApplicationController
       end
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_routine
       @routine = Routine.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def routine_params
       params.require(:routine).permit(:name, :user_id)
     end

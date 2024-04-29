@@ -25,17 +25,11 @@ class Routine < ApplicationRecord
   validate :no_duplicate_products
   validates :name, presence: true
 
-  # syntax for getting the products in a specific routine, first one, 
-    # routine = User.first.routines[0]
-
-  # calling the chat servise in the ruby console
-    # ChatService.new(message: "test message", routine: routine).call
-
     def prompt
       <<-TEXT
       You are a skincare specialist who is helping someone organize their routine products.
       For each of the products here, place them into their respective order of use based off of the type of product it is (i.e moisturizer, toner, eye cream, sunscreen, face wash).
-      Respond in HTML with the correct order and display them as a numbered list, with the number before each product (for example, '1.)', '2.)', '3.)'), and then below each on the items indented in a `<p>' tag, give an explanation as to why you placed it in that order, and then move on to the next item. Also provide the suggest time you should wait between using each product for example (3 to 4 minutes).
+      Respond in HTML with the correct order of usage and display the output of what order a user should use the products in a numbered list, included with the number before each product (for example, '1.)', '2.)', '3.)'), and then below each on the items indented in a `<p>' tag, give an explanation as to why you placed it in that order, and then move on to the next item. Also provide the suggest time you should wait between using each product for example (3 to 4 minutes). Make sure to note that if there is facewash in the routine, make sure that one goes first, and if there is sunscreen in the products. 
   
       #{products.map(&:name).join(", ")}
       TEXT
