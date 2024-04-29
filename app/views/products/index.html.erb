@@ -32,6 +32,10 @@
     <% end %>
   </div>
 
+   <div class="d-flex justify-content-center">
+    <%= paginate @products.per(1) %>
+  </div>
+
   <h3 class="text-lg mt-6 mb-3">Don't see a product you love?</h3>
   <%= link_to "Let us know!", new_product_path, class: "inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
 </div>

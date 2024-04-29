@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     @breadcrumbs = [
       {content: "Products", href: products_path}
     ]
-    @q = Product.ransack(params[:q])
+    @q = Product.page(params[:page]).ransack(params[:q])
     @products = @q.result
   end
 
