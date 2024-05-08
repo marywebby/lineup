@@ -34,6 +34,7 @@ Users are able to easily click "generate routine" on the specific routine, and i
 - Tailwind CSS Rails `2.4`
 - Bootstrap `5.3.3`
 
+<!-- This section can be removed from your readme. This is redundant info since your gemfile has all of the gems that you are using! -->
 ### Additonal gems added to applications 
 - [`appdev_support`](https://github.com/firstdraft/appdev_support)
 - [`annotate`](https://github.com/ctran/annotate_models)
@@ -117,6 +118,8 @@ rails slurp:reset
 rails slurp:type_of_products
 rails slurp:products
 rails slurp:ingredients
+
+<!-- REMOVE THIS STEP! Your sample data task is all commented out-->
 rake sample_data
 bin/dev
 ```
@@ -183,3 +186,30 @@ Thank you for contributing to **LineUP**!
 
 ### Ruby Version Errors
 * The project is written using Ruby 3.2.1, if you encounter issues upon cloning, make sure you have Ruby version 3.2.1 in your environment, also see the [Ruby Language docs.](https://www.ruby-lang.org/en/documentation/)
+
+<hr>
+
+# Code Review
+
+## Documentation
+- Great documentation; very well organized README file
+- Nitpick: Your links to the sections of your readme are not currently working on your Github repository. For example, when I click the FAQ hyperlink, I am not redirected to that section.
+
+## Version Control
+- Good branching 
+- Good issue tracking 
+- Excellent use of project board
+
+## Code Hygiene
+- Good indentation
+- Lots of commented out code which impacts code readability. Also, there is at least one file that is included that is not being used. Be sure to clean up your repository 
+
+## Frontend
+- Nice styling overall; however, your text in the sign-up and login pages are white on white. Also, your navbar is essentially hidden because it is white text on a white navbar.
+- Inconsistent use of rails view helpers. Make sure to refactor all of your forms to form_with ruby helper method
+
+## Backend
+- Project onboarding could be improved. Overall good documentation; however, you inlcuded the rake sample_data task when that file is commented out
+- Good use of security practices
+- Good implementation of Pundit, chat service, and database management
+- Good use of ransack, paginiation, and ChatGPT

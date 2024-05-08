@@ -1,5 +1,7 @@
 desc "Fill the database tables with some sample data"
 unless Rails.env.production?
+# On your README instructions, you list to run rake sample_data; however, you have commented out all of your sample data task. Remove this step in the instructions, and remove this file if you are only using the slurp.rake to populate the development database.
+
   namespace :dev do
     # desc "Drops, creates, migrates, and adds sample data to database"
     # task reset: [
