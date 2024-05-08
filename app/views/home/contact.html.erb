@@ -1,4 +1,5 @@
 <div class="flex min-h-screen items-center bg-blue-200">
+  <%# Refactor to use ruby form_with helper method! %>
   <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto p-6 bg-white box-border shadow-md rounded-2xl">
 
     <input type="hidden" name="access_key" value="<%= Rails.application.credentials.email_form_key %>">

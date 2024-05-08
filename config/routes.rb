@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  
+
   resources :product_ingredients
   resources :products
   resources :routine_products
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   post("/generate_routine", { :controller => "messages", :action => "create" })
 
+  # Nitpick: Refactor to new ruby syntax and remove hash-rocket
   get "/generate_routine" => "routines#new", as: :current_user_generate_routine
 
   get "/products" => "products#index", as: :browse_products

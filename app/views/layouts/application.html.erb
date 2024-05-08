@@ -6,7 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render "shared/cdn_assets" %>
+    <%# Nitpick: Your stylesheets will be combined into your application.css sheet. You can remove the link to your tailwind stylesheet!  %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%# You misnamed this file! The file name should be application.tailwind based on your naming! %> 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>

@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def create
     the_message = @routine.messages.new(role: params[:query_role])
+    # Remove unnecessary/commented out code!
     # api_messages_array = [{ role: "system", content: @routine.prompt }]
 
     if the_message.save
