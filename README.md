@@ -183,3 +183,4 @@ Thank you for contributing to **LineUP**!
 
 ### Ruby Version Errors
 * The project is written using Ruby 3.2.1, if you encounter issues upon cloning, make sure you have Ruby version 3.2.1 in your environment, also see the [Ruby Language docs.](https://www.ruby-lang.org/en/documentation/)
+
